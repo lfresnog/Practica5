@@ -1,0 +1,26 @@
+type Query {
+        ok: String!
+    }
+type Mutation {
+    addTeam(name:String!): Team!
+    addMatch(local:ID!,visitor:ID!, date:String!, score:String!, play:Boolean!, end:Boolean!): Match!
+    updateScore(match:ID!,score:String!): Match!
+    startEnd(match:ID!,play:Boolean,end:Boolean):Match!
+    tellYou(id:String!,value:Int!):Int!
+    
+}
+type Subscription {
+    tellMe(id:String!):String!
+}
+    type Team {
+        _id: ID!
+        name: String!
+    }
+    type Match{
+        local: Team!
+        visitor: Team!
+        date: String!
+        score: String!
+        play: Boolean!
+        end: Boolean!
+    }
