@@ -19,9 +19,7 @@ const Match = {
         const db = client.db("football");
         const matchscollection = db.collection("teams");
         const teamFound = await matchscollection.findOne({_id:ObjectID(visitor)});
-        if(!teamFound){
-            throw new Error("Unexpected error");
-        }
+        if(!teamFound) throw new Error("Unexpected error");
         return teamFound;
     } 
 }
